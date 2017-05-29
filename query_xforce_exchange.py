@@ -20,8 +20,8 @@ def get_md5(filename):
         print str(e)
 if __name__ == "__main__":
     output = open("output.json","w")
-    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"
-    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
+    key = "<API_KEY>"
+    password ="<API_PASSWORD>"
 
     token = base64.b64encode(key + ":" + password)
     headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
