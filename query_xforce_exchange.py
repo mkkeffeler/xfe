@@ -1,19 +1,16 @@
-# Lance Mueller
-# July 21, 2016
-
 import requests
 import sys
 import json
 from optparse import OptionParser
 import hashlib
 import base64
-
-def send_request(apiurl, scanurl, headers):
+output = open("output.json","w")
+def send_request(apiurl, scanurl, headers,output):
     fullurl = apiurl +  scanurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
     all_json = response.json()
-    print json.dumps(all_json, indent=4, sort_keys=True) 
-
+    output.write(json.dumps(all_json,indent=4,sort_keys=True))
+    return all_json
 def get_md5(filename):
     try:
         f = open(filename,"rb")
@@ -21,10 +18,10 @@ def get_md5(filename):
         return md5
     except e:
         print str(e)
-
 if __name__ == "__main__":
-    key = "<api_key_here>" # https://exchange.xforce.ibmcloud.com/settings/api
-    password ="<api_password_here>"
+    output = open("output.json","w")
+    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"
+    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
 
     token = base64.b64encode(key + ":" + password)
     headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
@@ -51,31 +48,49 @@ if __name__ == "__main__":
 if ( options.s_url is not None ):
     apiurl = url + "/url/"
     scanurl = options.s_url
-    send_request(apiurl, scanurl, headers)
+    all_json = send_request(apiurl, scanurl, headers,output)
 elif ( options.m_url is not None ):
     apiurl = url + "/url/malware/" 
     scanurl = options.m_url
-    send_request(apiurl, scanurl, headers)
+    all_json=send_request(apiurl, scanurl, headers,output)
 elif ( options.s_cve is not None ):
     apiurl = url + "/vulnerabilities/search/" 
     scanurl = options.s_cve
-    send_request(apiurl, scanurl, headers)
+    all_json = send_request(apiurl, scanurl, headers,output)
 elif (options.s_ip is not None):
     scanurl = options.s_ip
     apiurl = url + "/ipr/"
-    send_request(apiurl, scanurl, headers)
-    apiurl = url + "/ipr/history/"
-    send_request(apiurl, scanurl, headers)
+    all_json = send_request(apiurl, scanurl, headers,output)
     apiurl = url + "/ipr/malware/"
-    send_request(apiurl, scanurl, headers)
+#    all_json = send_request(apiurl, scanurl, headers,output)
+    apiurl = url + "/ipr/history/"
+ #   all_json = send_request(apiurl, scanurl, headers,output)
 elif (options.malfile is not None ):
     md5 = get_md5(options.malfile)
     if md5:
-        send_request(url+"/malware/", md5, headers)
+        send_request(url+"/malware/", md5, headers,output)
 elif (options.s_xfid is not None ):
-    send_request(url+"/vulnerabilities/", options.s_xfid, headers)
+    send_request(url+"/vulnerabilities/", options.s_xfid, headers,output)
 elif (options.hash is not None ):
-    send_request(url+"/malware/", options.hash, headers)
+    send_request(url+"/ipr/", options.hash, headers,output)
 
+print all_json["geo"]["country"]
+already_printed=[]
+result_str = ""
+parts = [0,1,2,3,4,5,6,7,8,9]
+print all_json['history'][0]['created']
+for key in all_json['history']:
+    for entry in key:
+        if(entry in already_printed):
+           continue
+    else:
+        for key in all_json['history']:
+           for entry in key["categoryDescriptions"]:
+               if(entry in already_printed):
+                   continue
+               else:
+                   result_str = result_str + str(entry)+" "+str(key["created"])+"\n" 
+                   already_printed.append(entry)
+print result_str
 if len(sys.argv[1:]) == 0:
     parser.print_help()
