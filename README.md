@@ -1,11 +1,11 @@
 # xfe
 Python API example for IBM X-Force Exchange - https://exchange.xforce.ibmcloud.com/
 
-#IP Address Report 
+# IP Address Report 
 Added functionality to this report to allow for the compiling of JSON output in a human readable format.
 Creates a file named "<IP_ADDRESS_SEARCHED.txt>" with a summary of location and creation date as well as all past categorizations (Malware, Botnet, Spam, etc) and the dates they were classified as such from the history portion of JSON output. Example below.
 
-#IP Address Query Example
+# IP Address Query Example
 You can make a query to the X-Force API through the following command. Be sure to input your own API Key and Password
 `python query_xforce_exchange.py -i 1.2.3.4`
 
@@ -23,7 +23,7 @@ Scanning IPs 2016-08-04T14:50:00.000Z
 This summarizes all past categorizations of this IP address and provides its known Geolocation as well as date of creation.
 
 
-#More to Come
+# More to Come
 
 
 More functionality being added to support URL queries and more. 
