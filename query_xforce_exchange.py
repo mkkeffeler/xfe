@@ -92,20 +92,18 @@ already_categorized=[]
 result_str = ""
 #Write the creation date of this IP/URL
 outfile.write(all_json['history'][0]['created']+"\n")
-#For all the entries in the history
+#For every entry in the json output 
 for key in all_json['history']:
-    #For every entry in the json output 
-    for key in all_json['history']:
-    #For every categorization within that entrys "categoryDescriptions"
-        for entry in key["categoryDescriptions"]:
-    #If this categorization has already been reported, don't report it again
-            if(entry in already_categorized):
-                continue
-            else:
+ #For every categorization within that entrys "categoryDescriptions"
+    for entry in key["categoryDescriptions"]:
+ #If this categorization has already been reported, don't report it again
+        if(entry in already_categorized):
+            continue
+        else:
     #Write the categorization listed and when it was classified as such
-                result_str = result_str + str(entry)+" "+str(key["created"])+"\n" 
+            result_str = result_str + str(entry)+" "+str(key["created"])+"\n" 
     #Add the category to the list of already categorized
-                already_categorized.append(entry)
+            already_categorized.append(entry)
 outfile.write(result_str)
 if len(sys.argv[1:]) == 0:
     parser.print_help()
