@@ -6,7 +6,7 @@ import hashlib
 import base64
 #Output all downloaded json to a file
 output = open("output.json","w")
-
+outfile = open(sys.argv[2]+".txt","w");
 def send_request(apiurl, scanurl, headers,output):
     fullurl = apiurl +  scanurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
@@ -24,8 +24,8 @@ def get_md5(filename):
 
 if __name__ == "__main__":
 #X-Force API Key and Password associated with your IBMID
-    key = "<API_KEY>"
-    password ="<API_PASSWORD>"
+    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"
+    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
 
     token = base64.b64encode(key + ":" + password)
     headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
@@ -74,7 +74,7 @@ elif (options.s_ip is not None):
     apiurl = url + "/ipr/malware/"
     send_request(apiurl, scanurl, headers,output)
     apiurl = url + "/ipr/history/"
-    alsend_request(apiurl, scanurl, headers,output)
+    send_request(apiurl, scanurl, headers,output)
 elif (options.malfile is not None ):
     md5 = get_md5(options.malfile)
     if md5:
@@ -84,13 +84,14 @@ elif (options.s_xfid is not None ):
 elif (options.hash is not None ):
     send_request(url+"/ipr/", options.hash, headers,output)
     
-#Print the location associated with this IP/URL
-print all_json["geo"]["country"]
+#Write the location associated with this IP/URL
+outfile.write(all_json["geo"]["country"]+"\n")
+
 #Used to hold categories of an IP or URL that have already been listed in the report.
 already_categorized=[]
 result_str = ""
-#Print the creation date of this IP/URL
-print all_json['history'][0]['created']
+#Write the creation date of this IP/URL
+outfile.write(all_json['history'][0]['created']+"\n")
 #For all the entries in the history
 for key in all_json['history']:
     #For every entry in the json output 
@@ -101,10 +102,10 @@ for key in all_json['history']:
             if(entry in already_categorized):
                 continue
             else:
-    #Print the categorization listed and when it was classified as such
+    #Write the categorization listed and when it was classified as such
                 result_str = result_str + str(entry)+" "+str(key["created"])+"\n" 
     #Add the category to the list of already categorized
                 already_categorized.append(entry)
-print result_str
+outfile.write(result_str)
 if len(sys.argv[1:]) == 0:
     parser.print_help()
