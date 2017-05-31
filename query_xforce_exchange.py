@@ -4,6 +4,17 @@ import json
 from optparse import OptionParser
 import hashlib
 import base64
+from sqlalchemy import Column, Text, ForeignKey, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import types
+from build_database import IP_Current, IP_History
+from sqlalchemy import exists
+engine = create_engine('sqlite:///IP_Report.db')
+DBSession = sessionmaker(bind = engine)
+session = DBSession()
 #Output all downloaded json to a file
 output = open("output.json","w")
 outfile = open(sys.argv[2]+".txt","w");
@@ -24,8 +35,21 @@ def get_md5(filename):
 
 if __name__ == "__main__":
 #X-Force API Key and Password associated with your IBMID
-    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"
-    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
+    key = "<API_KEY>"
+    password ="<API_PASSWORD>"
+
+
+    Provided_IP = str(sys.argv[2])
+    while (1):
+	#If we do not have a record of this IP in our DB
+        if session.query(IP_Current).filter(IP_Current.IP == Provided_IP).count()>0:
+            break
+        else:
+#Otherwise, create a new entry with that IP
+            new_IP = IP_Current(Current_Score = str("000"),IP =Provided_IP)
+            session.add(new_IP)
+            session.commit()
+            break
 
     token = base64.b64encode(key + ":" + password)
     headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
@@ -90,6 +114,7 @@ outfile.write(all_json["geo"]["country"]+"\n")
 #Used to hold categories of an IP or URL that have already been listed in the report.
 already_categorized=[]
 result_str = ""
+create_or_update = 0
 #Write the creation date of this IP/URL
 outfile.write(all_json['history'][0]['created']+"\n")
 #For every entry in the json output 
@@ -100,10 +125,25 @@ for key in all_json['history']:
         if(entry in already_categorized):
             continue
         else:
-    #Write the categorization listed and when it was classified as such
-            result_str = result_str + str(entry)+" "+str(key["created"])+"\n" 
+#IF we already have this IP in our DB or we have just created it 
+            if (session.query(IP_History).filter(IP_History.IP == Provided_IP).count()>0) or (create_or_update>0):
+                update_category = session.query(IP_History)
+                update_category = update_category.filter(IP_History.IP == Provided_IP)
+                record = update_category.one() 
+                record.Category = record.Category + " " + entry
+                session.commit()
+            else:
+#Create a new entry for this IP Address
+                new_historic_info = IP_History(Category= str(entry),Date = str(key["created"]), IP=Provided_IP)
+                session.add(new_historic_info)
+                session.commit()
+                create_or_update += 1
+#Write the categorization listed and when it was classified as such
+            result_str = result_str + str(entry)+" "+str(key["created"])+" \n" 
     #Add the category to the list of already categorized
             already_categorized.append(entry)
 outfile.write(result_str)
+
+
 if len(sys.argv[1:]) == 0:
     parser.print_help()
