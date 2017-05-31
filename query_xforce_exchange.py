@@ -16,8 +16,7 @@ engine = create_engine('sqlite:///IP_Report.db')
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
 #Output all downloaded json to a file
-output = open("output.json","w")
-outfile = open(sys.argv[2]+".txt","w");
+output = open(sys.argv[2]+".json","w")
 def send_request(apiurl, scanurl, headers,output):
     fullurl = apiurl +  scanurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
@@ -37,6 +36,7 @@ if __name__ == "__main__":
 #X-Force API Key and Password associated with your IBMID
     key = "<API_KEY>"
     password ="<API_PASSWORD>"
+
 
 
     Provided_IP = str(sys.argv[2])
@@ -109,14 +109,14 @@ elif (options.hash is not None ):
     send_request(url+"/ipr/", options.hash, headers,output)
     
 #Write the location associated with this IP/URL
-outfile.write(all_json["geo"]["country"]+"\n")
+#outfile.write(all_json["geo"]["country"]+"\n")
 
 #Used to hold categories of an IP or URL that have already been listed in the report.
 already_categorized=[]
 result_str = ""
 create_or_update = 0
 #Write the creation date of this IP/URL
-outfile.write(all_json['history'][0]['created']+"\n")
+#outfile.write(all_json['history'][0]['created']+"\n")
 #For every entry in the json output 
 for key in all_json['history']:
  #For every categorization within that entrys "categoryDescriptions"
@@ -142,7 +142,7 @@ for key in all_json['history']:
             result_str = result_str + str(entry)+" "+str(key["created"])+" \n" 
     #Add the category to the list of already categorized
             already_categorized.append(entry)
-outfile.write(result_str)
+#outfile.write(result_str)
 
 
 if len(sys.argv[1:]) == 0:
