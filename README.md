@@ -17,13 +17,15 @@ We can now make queries to the X-Force API and the data will be stored for us in
 
 This will make an entry for IP address 1.2.3.4 with all the relevant information that came from the JSON Output. This output will be saved to, in this example, "1.2.3.4.json" in case you need to refer to it later. 
 
-Still a work in progress.
+The IP_Current table will hold the last time a review was done on this IP and will provide the score it received and its Geolocation.
 
 # See if it Worked
 I created a basic script that will just test to see if there is anything in the Current Table. You can run it as seen below  
-`python query_completed_database.py`  
+`python query_completed_database.py --all IP`
 
-More functionality is being added to support queries to specific IP's, specific scores, and more.
+This will print out all information in both tables on that IP. Other options are being built but none are working as of now.
+
+More functionality is being added to support queries to specific scores and more.
 
 # More to Come
 
