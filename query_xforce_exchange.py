@@ -1,3 +1,9 @@
+#Miclain Keffeler
+#6/6/2017 
+#Adds or Updates entries in both the current and historic table on a given IP address. Pulls report from X-Force Exchange API and parses it to a usable format and writes to database.
+#Has capability to do other things with x-force but those options have not yet been configured.
+#Be sure that 'build_database.py' has been executed prior to running
+#Usage: python query_xforce_exchange.py -i <IP>
 import requests
 import sys
 import json
@@ -15,19 +21,19 @@ from sqlalchemy import exists
 import dateutil.parser
 from sqlalchemy.sql.expression import literal_column
 
-engine = create_engine('sqlite:///IP_Report.db')
+engine = create_engine('sqlite:///IP_Report.db')   #Setup the Database
 DBSession = sessionmaker(bind = engine)
-session = DBSession()
-#Output all downloaded json to a file
-output = open(sys.argv[2]+".json","w")
-def send_request(apiurl, scanurl, headers,output):
+session = DBSession()           #Must be able to query database
+output = open(sys.argv[2]+".json","w")    #Output all downloaded json to a file
+
+def send_request(apiurl, scanurl, headers,output):   #This function makes a request to the X-Force Exchange API using a specific URL and headers. 
     fullurl = apiurl +  scanurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
     all_json = response.json()
     output.write(json.dumps(all_json,indent=4,sort_keys=True))
     return all_json
 
-def get_md5(filename):
+def get_md5(filename):     #This function returns the MD5 hash of a provided file
     try:
         f = open(filename,"rb")
         md5 = hashlib.md5((f).read()).hexdigest()
@@ -35,42 +41,44 @@ def get_md5(filename):
     except e:
         print str(e)
 
-#This function confirms whether or not an entry already exists. If so, it returns the entry 
-def check_ip_exist(Table,Provided_IP):
+def check_ip_exist(Table,Provided_IP):           #This function confirms whether or not an entry already exists. If so, it returns the entry 
     while(1):
-        count = session.query(Table).filter(Table.IP == Provided_IP).count()
-        if count > 0:
+        count = session.query(Table).filter(Table.IP == Provided_IP).count()  
+        if count > 0:               #If the entry for this IP exists already (There is 1 occurence of this IP in the table)
             return session.query(Table).filter(Table.IP == Provided_IP).one()
         else:
-            new_IP = Table(Score = str("000"),IP = Provided_IP,)
+            new_IP = Table(Score = str("000"),IP = Provided_IP)
             session.add(new_IP)
             session.commit()
             return 0
-#This function will update both current and historic tables for a given column
-def update_both_tables(column_number,input_string,Provided_IP):
+
+def update_both_tables(column_number,input_string,Provided_IP):              #This function will update both current and historic tables for a given column
     columns = ["IP","Location","Date","Score","Category"]
     columner1 = str(columns[column_number])
     
     input_current = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()
-    setattr(input_current,str(literal_column(str(columner1))),str(input_string))
+    setattr(input_current,str(literal_column(str(columner1))),str(input_string))         #Update current table with new information
     session.commit()
     
     input_historic = session.query(IP_History).filter(IP_History.IP == Provided_IP).one()
-    setattr(input_historic,str(literal_column(str(columner1))),str(input_string))
+    setattr(input_historic,str(literal_column(str(columner1))),str(input_string))   #Update historic table with new information
     session.commit()
-#This function parses the date that comes from the raw JSON output and puts it in a Month/Day/Year format
-def date_parse(date_string):
+
+def date_parse(date_string):                          #This function parses the date that comes from the raw JSON output and puts it in a Month/Day/Year format
     parsed_date = dateutil.parser.parse(date_string).strftime("%x")
     return parsed_date
-#This function pulls current information from JSON output for a handful of keys
-def get_current_info(column_number,review_count,Provided_IP,all_json):
+
+def get_current_info(column_number,review_count,Provided_IP,all_json):             #This function pulls current information from JSON output for a handful of keys
+ 
     keys = ["categoryDescriptions","created","score"]
-    attr = keys[column_number]
+    attr = keys[column_number]                              #Declarations
     key_count = 0
-    if attr == "created" or attr == "score":
+    current_info = ""
+
+    if attr == "created" or attr == "score":   #If the attribute we are looking for is the created date or score
         return all_json["history"][review_count-1][attr]
     else:
-        for key in all_json["history"][review_count-1][attr]:
+        for key in all_json["history"][review_count-1][attr]:  #For every report except the most recent report (Which is current, not history)
             if (key_count >= 1):
                 current_info = current_info + " ," + str(key)
             else:
@@ -79,15 +87,14 @@ def get_current_info(column_number,review_count,Provided_IP,all_json):
         return current_info
 
 if __name__ == "__main__":
-#X-Force API Key and Password associated with your IBMID
-    key = "<API_KEY>"
-    password ="<API_PASSWORD>"
-
+    
+    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"    #X-Force API Key and Password associated with your IBMID
+    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
 
 
     Provided_IP = str(sys.argv[2])
 
-    IP_exists = check_ip_exist(IP_Current,Provided_IP)
+    IP_exists = check_ip_exist(IP_Current,Provided_IP)              #Check if the IP provided exists in the table already. If so, they we don't need to create another entry
     IP_exists_history = check_ip_exist(IP_History,Provided_IP)
 
     token = base64.b64encode(key + ":" + password)
@@ -96,29 +103,23 @@ if __name__ == "__main__":
 
 
     parser = OptionParser()
-    #use this option to check a url
     parser.add_option("-u", "--url", dest="s_url", default="none", 
-                      help="url to be checked by exchange ibm xforce", metavar="scanurl")
-    #use this option to get malware associated with an entered url
+                      help="url to be checked by exchange ibm xforce", metavar="scanurl")                 #Use this option to check a url
     parser.add_option("-l", "--malwareurl", dest="m_url", default="none", 
-                      help="returns the malware associated with the entered url", metavar="scanurl")
-    #use this option to check a file's maliciousness
+                      help="returns the malware associated with the entered url", metavar="scanurl")               #Use this option to get malware associated with a url
     parser.add_option("-f", "--file", dest="malfile" , default="none",
-                      help="file (md5 hash) to be checked by exchange ibm xforce", metavar="filename")
-    #use this option to check a md5 hash in general
+                      help="file (md5 hash) to be checked by exchange ibm xforce", metavar="filename")                 #Use this option to check a file's maliciousness
     parser.add_option("-m", "--md5", dest="hash" , default="none",
-                      help="hash to be checked by exchange ibm xforce", metavar="hashvalue")
-    #use this option to specify an xfid
+                      help="hash to be checked by exchange ibm xforce", metavar="hashvalue")                       #use this option to check a md5 hash
     parser.add_option("-x", "--xfid", dest="s_xfid" , default="none",
-                      help="xfid to be used ", metavar="xfid")
+                      help="xfid to be used ", metavar="xfid")                                  #Use this option to specify an xfid
     parser.add_option("-c", "--cve", dest="s_cve" , default="none",
                       help="cve, bid, us-cert, uv#, rhsa id to be searched ", metavar="cve-xxx-xxx")
-    #use this option to check an ip address
     parser.add_option("-i", "--ip", dest="s_ip" , default="none",
-                      help="ip to be checked", metavar="ipaddress")
+                      help="ip to be checked", metavar="ipaddress")                                           #Use this option to check an IP address
 (options, args) = parser.parse_args()
 
-if ( options.s_url is not "none" ):
+if ( options.s_url is not "none" ): #If the -u option was used, then take the value that was entered for that parameter and 
     apiurl = url + "/url/"
     scanurl = options.s_url
     all_json = send_request(apiurl, scanurl, headers,output)
@@ -130,7 +131,7 @@ elif ( options.s_cve is not "none" ):
     apiurl = url + "/vulnerabilities/search/" 
     scanurl = options.s_cve
     all_json = send_request(apiurl, scanurl, headers,output)
-elif (options.s_ip is not "none"):
+elif (options.s_ip is not "none"):    #If the -i option was used
     scanurl = options.s_ip
     apiurl = url + "/ipr/"
     all_json = send_request(apiurl, scanurl, headers,output)
@@ -144,44 +145,37 @@ elif (options.malfile is not "none" ):
         send_request(url+"/malware/", md5, headers,output)
 elif (options.s_xfid is not "none" ):
     send_request(url+"/vulnerabilities/", options.s_xfid, headers,output)
+    
 elif (options.hash is not "none" ):
     send_request(url+"/ipr/", options.hash, headers,output)
     
 
-#Used to hold categories of an IP or URL that have already been listed in the report.
-IP_Location = all_json["geo"]["country"]
+IP_Location = all_json["geo"]["country"]     #Used to hold categories of an IP or URL that have already been listed in the report.
 
-#Declarations
 already_categorized=[]
 current_categories = ""
-key_count = 0
+key_count = 0                                           #Declarations
 category_count = 0
 update_both_tables(1,IP_Location,Provided_IP)
 review_count = len(all_json['history'])
 
-#For every entry in the json output 
-for key in all_json['history']:
- #For every categorization within that entrys "categoryDescriptions"
-    for entry in key["categoryDescriptions"]:
- #If this categorization has already been reported, don't report it again
-        if(entry in already_categorized):                     
+for key in all_json['history']:    #For every entry in the json output 
+    for entry in key["categoryDescriptions"]:         #For every categorization within that entrys "categoryDescriptions"
+        if(entry in already_categorized):                               #If this categorization has already been reported, don't report it again
             continue
         else:       #Since we already have this IP in our DB,
             
             update_both_tables(1,IP_Location,Provided_IP)
             
             update_historic_category = session.query(IP_History).filter(IP_History.IP == Provided_IP).one()
-            
-            record.Score = str(all_json["subnets"][0]["score"])
+            if category_count == 0:    #If this is the first categorization that has been assigned to this IP
+                update_historic_category.Category = str(entry)
+                category_count += 1
+            else:   #Otherwise we need commas and to keep what was already in there
+                update_historic_category.Category = update_historic_category.Category + " , " + str(entry)
+                category_count += 1 
             session.commit()
 
-            if category_count == 0:   #If this is the first/only categorization for this IP
-                record.Category = str(entry)
-                category_count += 1
-            else:             #Otherwise, make it a nice looking list of categories
-                record.Category = str(record.Category) + str(" , ") + str(entry)
-                record.Date = date_parse(key["created"])
-                session.commit()
 
             already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 

@@ -1,3 +1,6 @@
+#Miclain Keffeler
+#6/6/2017
+#This file creates 2 tables within the SQL Database that is named "IP_Report.db". One table is used to hold current information while the other is used to hold historic information
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String
@@ -6,23 +9,17 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 
 Base = declarative_base()
-#Table to hold most up to date score and Category on a given IP Address 
-class IP_Current(Base):
-    __tablename__ = 'current'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
-    IP = Column(String(250), primary_key=True)
+class IP_Current(Base):    #Table to hold most up to date score and Category on a given IP Address 
+    __tablename__ = 'current'               
+    IP = Column(String(250), primary_key=True)       #Here we define each column in the table, Notice that each column is also a normal Python instance attribute.
     Location = Column(String(250),nullable=True)
     Date = Column(String(250),nullable=True) 
     Score = Column(String(250), nullable=False)
     #Current Category is under "Cats" in JSON
     Category = Column(String(250),nullable=True)
 
-#Table to hold historic scores, categories, and dates of an IP
-class IP_History(Base):
+class IP_History(Base):          #Table to hold historic scores, categories, and dates of an IP
     __tablename__ = 'address'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
     IP = Column(String(250),primary_key=True)
     Location = Column(String(250),nullable=True)
     Date = Column(String(250),nullable=True)
@@ -30,10 +27,6 @@ class IP_History(Base):
     Category = Column(String(250), nullable=True)
  
 
-# Create an engine that stores data in the local directory's
-# sqlalchemy_example.db file.
-engine = create_engine('sqlite:///IP_Report.db')
+engine = create_engine('sqlite:///IP_Report.db')      #Create an engine that stores data in the local directory, IP_Report.db file.
  
-# Create all tables in the engine. This is equivalent to "Create Table"
-# statements in raw SQL.
-Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)    #Create all tables in the engine. Equivalent to "Create table" statement in raw SQL.
