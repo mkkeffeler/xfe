@@ -180,17 +180,11 @@ for key in all_json['history']:    #For every entry in the json output
             already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 
 
-most_recent = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()
-most_recent.Date = date_parse(str(get_current_info(1,review_count,Provided_IP,all_json)))   #Adds the latest security check on this IP address to IP_Current Table information
-session.commit()
+update_both_tables(2,date_parse(str(get_current_info(1,review_count,Provided_IP,all_json))),Provided_IP)   #Adds the latest security check on this IP address to IP_Current Table information
 
-latest_score = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()
-latest_score.Score = get_current_info(2,review_count,Provided_IP,all_json)        #Adds the latest score that was reported on this IP address to IP_Current Table
-session.commit()
+update_both_tables(3,get_current_info(2,review_count,Provided_IP,all_json),Provided_IP)        #Adds the latest score that was reported on this IP address to IP_Current Table
 
-latest_categorization = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()
-latest_categorization.Category = get_current_info(0,review_count,Provided_IP,all_json)   #Adds the latest categorization for this IP address to IP_Current Table
-session.commit()
+update_both_tables(4,get_current_info(0,review_count,Provided_IP,all_json),Provided_IP)   #Adds the latest categorization for this IP address to IP_Current Table
 
 if len(sys.argv[1:]) == 0:
     parser.print_help()

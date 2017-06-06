@@ -49,16 +49,12 @@ def check_ip_exist(Table,Provided_IP):     #This function confirms whether or no
             session.commit()
             return 0
 
-def update_both_tables(column_number,input_string,Provided_IP):             #This function will update both current and historic tables for a given column
+def update_current_table(column_number,input_string,Provided_IP):             #This function will update both current and historic tables for a given column
     columns = ["IP","Location","Date","Score","Category"]
     columner1 = str(columns[column_number])
     
     input_current = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()   #Updates Current information table
     setattr(input_current,str(literal_column(str(columner1))),str(input_string))
-    session.commit()
-    
-    input_historic = session.query(IP_History).filter(IP_History.IP == Provided_IP).one()    #Updates historic information table
-    setattr(input_historic,str(literal_column(str(columner1))),str(input_string))
     session.commit()
 
 def date_parse(date_string):          #This function parses the date that comes from the raw JSON output and puts it in a Month/Day/Year format
@@ -109,7 +105,7 @@ for IP_Entry in session.query(IP_Current).all():      #For every IP address in t
     current_categories = ""
     key_count = 0
     category_count = 0
-    update_both_tables(1,IP_Location,Update_IP)
+    update_current_table(1,IP_Location,Update_IP)
     review_count = len(all_json['history'])
 
     for key in all_json['history']:            #For every entry in the json output 
@@ -118,7 +114,7 @@ for IP_Entry in session.query(IP_Current).all():      #For every IP address in t
                 continue
             else:       #Since we already have this IP in our DB,
             
-                update_both_tables(1,IP_Location,Update_IP)
+                update_current_table(1,IP_Location,Update_IP)
             
                 if category_count == 0:
                     IP_Entry.Category = str(entry)
