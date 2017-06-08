@@ -19,7 +19,11 @@ session = DBSession()
 columns = ["IP","Location","Date","Score","Category"]
 # Retrieve one Address whose person field is point to the person object
 # Return the first IP address from all the IP addresses in this table
+def print_registrar_name(string):
+    print "Registrar Name: " + string
 
+def print_registrar_org(string):
+    print "Registrar Organization: " + string
 
 def print_ip(string):   #This function is used to print the IP address
     print "IP: " + string
@@ -60,7 +64,8 @@ if options.all1 is not "None":
     print_date( person.Date)
     print_score( person.Score)
     print_category( person.Category)
-
+    print_registrar_name(person.registrar_name)
+    print_registrar_org(person.registrar_organization)
     current = session.query(IP_History).filter(IP_History.IP == options.all1).one()
     print "\nHistoric Information\n"                  #Print all the information in on this IP in the historic data table
     print_ip(current.IP)
@@ -68,6 +73,8 @@ if options.all1 is not "None":
     print_date(current.Date)
     print_score(current.Score)
     print_historic_category(current.Category)
+    print_registrar_name(current.registrar_name)
+    print_registrar_org(current.registrar_organization)
 
 
 if len(sys.argv[1:]) == 0:

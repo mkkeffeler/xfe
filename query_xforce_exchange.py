@@ -26,6 +26,7 @@ DBSession = sessionmaker(bind = engine)
 session = DBSession()           #Must be able to query database
 output = open(sys.argv[2]+".json","w")    #Output all downloaded json to a file
 
+whois = ""
 def send_request(apiurl, scanurl, headers,output):   #This function makes a request to the X-Force Exchange API using a specific URL and headers. 
     fullurl = apiurl +  scanurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
@@ -53,7 +54,7 @@ def check_ip_exist(Table,Provided_IP):           #This function confirms whether
             return 0
 
 def update_both_tables(column_number,input_string,Provided_IP):              #This function will update both current and historic tables for a given column
-    columns = ["IP","Location","Date","Score","Category"]
+    columns = ["IP","Location","Date","Score","Category","registrar_name","registrar_organization"]
     columner1 = str(columns[column_number])
     
     input_current = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()
@@ -139,6 +140,8 @@ elif (options.s_ip is not "none"):    #If the -i option was used
     send_request(apiurl, scanurl, headers,output)
     apiurl = url + "/ipr/history/"
     send_request(apiurl, scanurl, headers,output)
+    apiurl = url + "/whois/"
+    whois = send_request(apiurl,scanurl,headers,output)
 elif (options.malfile is not "none" ):
     md5 = get_md5(options.malfile)
     if md5:
@@ -158,6 +161,9 @@ key_count = 0                                           #Declarations
 category_count = 0
 update_both_tables(1,IP_Location,Provided_IP)
 review_count = len(all_json['history'])
+
+registrar_name = whois['registrarName']                              #Pull basic whois information on provided IP
+registrar_organization = whois['contact'][0]['organization']
 
 for key in all_json['history']:    #For every entry in the json output 
     for entry in key["categoryDescriptions"]:         #For every categorization within that entrys "categoryDescriptions"
@@ -179,6 +185,9 @@ for key in all_json['history']:    #For every entry in the json output
 
             already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 
+update_both_tables(5,str(registrar_name),Provided_IP)             #Add the registrar name to this IP address in both tables
+
+update_both_tables(6,str(registrar_organization),Provided_IP)             #Add the registrar organization to this IP in both tables
 
 update_both_tables(2,date_parse(str(get_current_info(1,review_count,Provided_IP,all_json))),Provided_IP)   #Adds the latest security check on this IP address to IP_Current Table information
 

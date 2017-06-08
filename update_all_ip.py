@@ -50,7 +50,7 @@ def check_ip_exist(Table,Provided_IP):     #This function confirms whether or no
             return 0
 
 def update_both_tables(column_number,input_string,Provided_IP):             #This function will update both current and historic tables for a given column
-    columns = ["IP","Location","Date","Score","Category"]
+    columns = ["IP","Location","Date","Score","Category","registrar_name","registrar_organization"]
     columner1 = str(columns[column_number])
     
     input_current = session.query(IP_Current).filter(IP_Current.IP == Provided_IP).one()   #Updates Current information table
@@ -102,10 +102,16 @@ for IP_Entry in session.query(IP_History).all():      #For every IP address in t
     send_request(apiurl, Update_IP, headers,Update_IP)
     apiurl = url + "/ipr/history/"
     send_request(apiurl, Update_IP, headers,Update_IP)
-    
+    apiurl = url + "/whois/"
+    whois = send_request(apiurl,Update_IP,headers,Update_IP)   
 
     IP_Location = all_json["geo"]["country"]             #Used to hold categories of an IP or URL that have already been listed in the report.
+    
+ 
+    registrar_name = whois['registrarName']                              #Pull basic whois information on provided IP
+    registrar_organization = whois['contact'][0]['organization']
 
+   
     already_categorized=[]                      #Declarations
     current_categories = ""
     key_count = 0
@@ -130,24 +136,36 @@ for IP_Entry in session.query(IP_History).all():      #For every IP address in t
                 already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 
     if( IP_Entry.Location !=IP_Location): #Checks the latest security check on this IP address to IP_Current Table information
-        generate_cef_event(IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         update_both_tables(1,IP_Location,Update_IP)
 
     if( IP_Entry.Date != date_parse(str(get_current_info(1,review_count,Update_IP,all_json)))): #Checks the latest security check on this IP address to IP_Current Table information
-        generate_cef_event(IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         update_both_tables(2,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),Update_IP)
         print "2"
     if(str(IP_Entry.Score) != str(get_current_info(2,review_count,Update_IP,all_json))):                      #Adds the latest score that was reported on this IP address to IP_Current Table
-        generate_cef_event(IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         print IP_Entry.Score
         print get_current_info(2,review_count,Update_IP,all_json)
         update_both_tables(3,get_current_info(2,review_count,Update_IP,all_json),Update_IP) 
         print "32"
         
     if(str(IP_Entry.Category) != get_current_info(0,review_count,Update_IP,all_json)):   #Adds the latest categorization for this IP address to IP_Current Table
-        generate_cef_event(IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         update_both_tables(4,all_categories,Update_IP)
         print "##"
+    
+    if(str(IP_Entry.registrar_organization) != str(registrar_organization)):   #Adds the latest categorization for this IP address to IP_Current Table
+        print IP_Entry.registrar_organization
+        print registrar_organization     
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        update_both_tables(6,all_categories,Update_IP)
+    
+    if(str(IP_Entry.registrar_name) != registrar_name):   #Adds the latest categorization for this IP address to IP_Current Table
+        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        update_both_tables(5,all_categories,Update_IP)
+        print "3"
+ 
     session.commit()
 
 print "Updates were Successful"
