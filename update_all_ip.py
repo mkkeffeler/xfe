@@ -136,34 +136,34 @@ for IP_Entry in session.query(IP_History).all():      #For every IP address in t
                 already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 
     if( IP_Entry.Location !=IP_Location): #Checks the latest security check on this IP address to IP_Current Table information
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        update_both_tables(1,IP_Location,Update_IP)
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+#        update_both_tables(1,IP_Location,Update_IP)
 
     if( IP_Entry.Date != date_parse(str(get_current_info(1,review_count,Update_IP,all_json)))): #Checks the latest security check on this IP address to IP_Current Table information
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        update_both_tables(2,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),Update_IP)
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+ #       update_both_tables(2,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),Update_IP)
         print "2"
     if(str(IP_Entry.Score) != str(get_current_info(2,review_count,Update_IP,all_json))):                      #Adds the latest score that was reported on this IP address to IP_Current Table
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         print IP_Entry.Score
         print get_current_info(2,review_count,Update_IP,all_json)
-        update_both_tables(3,get_current_info(2,review_count,Update_IP,all_json),Update_IP) 
+  #      update_both_tables(3,get_current_info(2,review_count,Update_IP,all_json),Update_IP) 
         print "32"
         
     if(str(IP_Entry.Category) != get_current_info(0,review_count,Update_IP,all_json)):   #Adds the latest categorization for this IP address to IP_Current Table
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        update_both_tables(4,all_categories,Update_IP)
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+   #     update_both_tables(4,all_categories,Update_IP)
         print "##"
     
     if(str(IP_Entry.registrar_organization) != str(registrar_organization)):   #Adds the latest categorization for this IP address to IP_Current Table
         print IP_Entry.registrar_organization
         print registrar_organization     
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        update_both_tables(6,all_categories,Update_IP)
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+    #    update_both_tables(6,all_categories,Update_IP)
     
     if(str(IP_Entry.registrar_name) != registrar_name):   #Adds the latest categorization for this IP address to IP_Current Table
-        generate_cef_event(IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        update_both_tables(5,all_categories,Update_IP)
+        generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,IP_Location,registrar_name,registrar_organization,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+     #   update_both_tables(5,all_categories,Update_IP)
         print "3"
  
     session.commit()
