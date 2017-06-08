@@ -89,8 +89,8 @@ def get_current_info(column_number,review_count,Provided_IP,all_json):          
 
 if __name__ == "__main__":
     
-    key = "859a8d2b-9d5c-4bfb-957f-6a8ce66d6d04"    #X-Force API Key and Password associated with your IBMID
-    password ="ff9e1a26-3c42-4cd2-b764-67e727e6dafd"
+    key = "<X_FORCE_KEY>"    #X-Force API Key and Password associated with your IBMID
+    password ="X_FORCE_PASSWORD"
 
 
     Provided_IP = str(sys.argv[2])
