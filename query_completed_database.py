@@ -1,3 +1,6 @@
+#!/usr/bin/python
+__author__='mkkeffeler'
+
 #Miclain Keffeler
 #6/6/2017
 #This script queries the database and pulls all information on a provided IP address, both current and historic, and displays it

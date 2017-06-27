@@ -1,9 +1,13 @@
+#!/usr/bin/python
+__author__='mkkeffeler'
+
 #Miclain Keffeler
 #6/6/2017 
 #Adds or Updates entries in both the current and historic table on a given IP address. Pulls report from X-Force Exchange API and parses it to a usable format and writes to database.
 #Has capability to do other things with x-force but those options have not yet been configured.
 #Be sure that 'build_database.py' has been executed prior to running
 #Usage: python query_xforce_exchange.py -i <IP>
+
 import requests
 import sys
 import json
@@ -21,6 +25,15 @@ from sqlalchemy import exists
 import dateutil.parser
 from sqlalchemy.sql.expression import literal_column
 import os
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('config.ini')
+key = config.get('DEFAULT', 'KEY')                          #Get API Key and Password from Config.INI file
+password = config.get('DEFAULT', 'PASSWORD')
+
+
+
 engine = create_engine('sqlite:///IP_Report.db')   #Setup the Database
 DBSession = sessionmaker(bind = engine)
 session = DBSession()           #Must be able to query database
@@ -90,10 +103,6 @@ def get_current_info(column_number,review_count,Provided_IP,all_json):          
 
 if __name__ == "__main__":
     
-    key = "KEY"
-    password ="PASSWORD"
-
-
     Provided_IP = str(sys.argv[2])
 
     IP_exists = check_ip_exist(IP_Current,Provided_IP)              #Check if the IP provided exists in the table already. If so, they we don't need to create another entry

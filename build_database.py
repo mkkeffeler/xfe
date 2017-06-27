@@ -1,6 +1,10 @@
+#!/usr/bin/python
+
+__author__='mkkeffeler'
 #Miclain Keffeler
 #6/6/2017
 #This file creates 2 tables within the SQL Database that is named "IP_Report.db". One table is used to hold current information while the other is used to hold historic information
+
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String

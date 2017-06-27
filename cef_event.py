@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+__author__='mkkeffeler'
 #Miclain Keffeler
 #6/6/2017
 #This script holds the function needed to generate a CEF (Common Event Format) Event. 

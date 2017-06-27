@@ -1,3 +1,6 @@
+#!/usr/bin/python
+__author__='mkkeffeler'
+
 #Miclain Keffeler
 #G6/6/2017 
 #This script will update all the entries in both historic and current tables. Pulls the latest JSON file on every IP that is already in tables, and updates entries for that IP and continues for all.
@@ -19,16 +22,29 @@ from sqlalchemy import exists
 import dateutil.parser
 from sqlalchemy.sql.expression import literal_column
 from cef_event import generate_cef_event
+import os
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('config.ini')
+HOST= config.get('DEFAULT', 'PORT')                          #Get Hostname and Port to send CEF event to from Config.INI file
+PORT= config.get('DEFAULT', 'HOST')
+key = config.get('DEFAULT', 'KEY')                          #Get API Key and Password from Config.INI file
+password = config.get('DEFAULT', 'PASSWORD')
+
+
+
 engine = create_engine('sqlite:///IP_Report.db')
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
 #Output all downloaded json to a file
+os.chdir('xforce/')
 def send_request(apiurl, scanurl, headers,output):
     fullurl = str(apiurl) +  str(scanurl)
     print fullurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
     all_json = response.json()
-    output = open(output+".json","w")   #Updates the JSON file associated with respective IPs
+    output = open(output+"-whois.json","w")   #Updates the JSON file associated with respective IPs
     output.write(json.dumps(all_json,indent=4,sort_keys=True))
     return all_json
 
@@ -42,7 +58,7 @@ def get_md5(filename):
 
 CONFIG = {}
 
-def syslog(message, level=5, facility=5, host='HOST', port=PORT):
+def syslog(message, level=5, facility=5, host=HOST, port=PORT):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         data = '<%d>%s' % (level + facility*8, message)
         sock.sendto(data, (host, int(port)))
@@ -121,8 +137,6 @@ if __name__ == "__main__":
         'emerg': 0, 'alert':1, 'crit': 2, 'err': 3,
         'warning': 4, 'notice': 5, 'info': 6, 'debug': 7
 }  
-    key = "KEY"
-    password ="PASSWORD"
 
 
     token = base64.b64encode(key + ":" + password)
