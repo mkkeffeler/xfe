@@ -20,10 +20,11 @@ from build_database import IP_Current, IP_History
 from sqlalchemy import exists
 import dateutil.parser
 from sqlalchemy.sql.expression import literal_column
-
+import os
 engine = create_engine('sqlite:///IP_Report.db')   #Setup the Database
 DBSession = sessionmaker(bind = engine)
 session = DBSession()           #Must be able to query database
+os.chdir('xforce/')
 output = open(sys.argv[2]+".json","w")    #Output all downloaded json to a file
 
 whois = ""
@@ -89,8 +90,8 @@ def get_current_info(column_number,review_count,Provided_IP,all_json):          
 
 if __name__ == "__main__":
     
-    key = "<X_FORCE_KEY>"    #X-Force API Key and Password associated with your IBMID
-    password ="X_FORCE_PASSWORD"
+    key = "KEY"
+    password ="PASSWORD"
 
 
     Provided_IP = str(sys.argv[2])
@@ -99,6 +100,7 @@ if __name__ == "__main__":
     IP_exists_history = check_ip_exist(IP_History,Provided_IP)
 
     token = base64.b64encode(key + ":" + password)
+    print token
     headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
     url = "https://api.xforce.ibmcloud.com:443"
 
