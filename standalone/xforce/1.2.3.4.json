@@ -1,0 +1,1664 @@
+{
+    "categoryDescriptions": {}, 
+    "cats": {}, 
+    "geo": {
+        "country": "Australia", 
+        "countrycode": "AU"
+    }, 
+    "history": [
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-03-22T07:26:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.0/24", 
+            "reason": "Regional Internet Registry", 
+            "reasonDescription": "One of the five RIRs announced a (new) location mapping of the IP.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57
+            }, 
+            "created": "2012-04-21T23:42:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Malware": 57
+            }, 
+            "created": "2012-04-26T09:30:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2012-07-20T00:05:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-08-25T18:19:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-01-01T00:46:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2013-01-07T19:10:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-05-10T09:59:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2013-05-24T10:03:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-05-26T15:38:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 86
+            }, 
+            "created": "2013-08-05T12:10:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 8.6
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 100
+            }, 
+            "created": "2014-01-04T22:11:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 71
+            }, 
+            "created": "2014-05-26T07:35:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-02T09:50:00.000Z", 
+            "geo": {
+                "country": "Afghanistan", 
+                "countrycode": "AF"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-04T06:27:00.000Z", 
+            "geo": {
+                "country": "Angola", 
+                "countrycode": "AO"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-05T06:39:00.000Z", 
+            "geo": {
+                "country": "Andorra", 
+                "countrycode": "AD"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-07-01T10:57:00.000Z", 
+            "geo": {
+                "country": "Afghanistan", 
+                "countrycode": "AF"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-07-01T11:03:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-02-12T05:43:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-03-27T10:42:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-02T04:51:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-05T09:43:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-09T04:53:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-12T09:46:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-22T14:39:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-07T09:36:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-12T12:02:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-16T09:48:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-19T12:05:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2016-03-17T09:16:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71
+            }, 
+            "created": "2016-04-28T14:30:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43
+            }, 
+            "created": "2016-04-28T14:32:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 4.3
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-06-29T03:33:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Spam": 57
+            }, 
+            "created": "2016-07-18T14:16:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-07-18T14:18:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-07-18T14:19:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities."
+            }, 
+            "cats": {
+                "Malware": 100, 
+                "Scanning IPs": 100
+            }, 
+            "created": "2016-08-04T14:50:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Anonymisation Services": 100, 
+                "Botnet Command and Control Server": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:04:00.000Z", 
+            "geo": {
+                "country": "\u00c5land Islands", 
+                "countrycode": "AX"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Anonymisation Services": 100, 
+                "Botnet Command and Control Server": 100, 
+                "Malware": 100, 
+                "Scanning IPs": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:09:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Malware": 100, 
+                "Scanning IPs": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:14:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-08-17T15:57:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43
+            }, 
+            "created": "2016-08-19T23:36:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 4.3
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2017-01-14T14:45:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2017-05-02T21:09:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 1
+        }
+    ], 
+    "ip": "1.2.3.4", 
+    "reason": "Security analyst review", 
+    "reasonDescription": "Based on the review of an X-Force security analyst.", 
+    "score": 1, 
+    "subnets": [
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-03-22T07:26:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.0", 
+            "reason": "Regional Internet Registry", 
+            "reasonDescription": "One of the five RIRs announced a (new) location mapping of the IP.", 
+            "score": 1, 
+            "subnet": "1.2.3.0/24"
+        }
+    ]
+}{
+    "malware": []
+}{
+    "history": [
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-03-22T07:26:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.0/24", 
+            "reason": "Regional Internet Registry", 
+            "reasonDescription": "One of the five RIRs announced a (new) location mapping of the IP.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57
+            }, 
+            "created": "2012-04-21T23:42:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Malware": 57
+            }, 
+            "created": "2012-04-26T09:30:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2012-07-20T00:05:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-08-25T18:19:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-01-01T00:46:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2013-01-07T19:10:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-05-10T09:59:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2013-05-24T10:03:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 57
+            }, 
+            "created": "2013-05-26T15:38:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 86
+            }, 
+            "created": "2013-08-05T12:10:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 8.6
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 100
+            }, 
+            "created": "2014-01-04T22:11:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Malware": 71
+            }, 
+            "created": "2014-05-26T07:35:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-02T09:50:00.000Z", 
+            "geo": {
+                "country": "Afghanistan", 
+                "countrycode": "AF"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-04T06:27:00.000Z", 
+            "geo": {
+                "country": "Angola", 
+                "countrycode": "AO"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-06-05T06:39:00.000Z", 
+            "geo": {
+                "country": "Andorra", 
+                "countrycode": "AD"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-07-01T10:57:00.000Z", 
+            "geo": {
+                "country": "Afghanistan", 
+                "countrycode": "AF"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2014-07-01T11:03:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-02-12T05:43:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-03-27T10:42:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-02T04:51:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-05T09:43:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-09T04:53:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-12T09:46:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-04-22T14:39:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-07T09:36:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-12T12:02:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-16T09:48:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 57, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2015-06-19T12:05:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71, 
+                "Malware": 71
+            }, 
+            "created": "2016-03-17T09:16:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43, 
+                "Botnet Command and Control Server": 71
+            }, 
+            "created": "2016-04-28T14:30:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 7.1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43
+            }, 
+            "created": "2016-04-28T14:32:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 4.3
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-06-29T03:33:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Spam": 57
+            }, 
+            "created": "2016-07-18T14:16:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 5.7
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-07-18T14:18:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-07-18T14:19:00.000Z", 
+            "deleted": true, 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Community feedback", 
+            "reasonDescription": "Based on feedback from the community.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities."
+            }, 
+            "cats": {
+                "Malware": 100, 
+                "Scanning IPs": 100
+            }, 
+            "created": "2016-08-04T14:50:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Anonymisation Services": 100, 
+                "Botnet Command and Control Server": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:04:00.000Z", 
+            "geo": {
+                "country": "\u00c5land Islands", 
+                "countrycode": "AX"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration).", 
+                "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server.", 
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Anonymisation Services": 100, 
+                "Botnet Command and Control Server": 100, 
+                "Malware": 100, 
+                "Scanning IPs": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:09:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {
+                "Malware": "This category lists IPs of malicious websites or malware hosting websites.", 
+                "Scanning IPs": "These IPs have been identified as illegally scanning networks for vulnerabilities.", 
+                "Spam": "This category lists IP addresses that were seen sending out spam."
+            }, 
+            "cats": {
+                "Malware": 100, 
+                "Scanning IPs": 100, 
+                "Spam": 100
+            }, 
+            "created": "2016-08-05T08:14:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 10
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2016-08-17T15:57:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {
+                "Anonymisation Services": "This category contains IP addresses of Web proxies (websites that allow the user to anonymously view websites). Furthermore, IP addresses are listed that can be used directly to surf anonymously (e.g. by adding them to the browser configuration)."
+            }, 
+            "cats": {
+                "Anonymisation Services": 43
+            }, 
+            "created": "2016-08-19T23:36:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 4.3
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2017-01-14T14:45:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Content found on multihoster", 
+            "reasonDescription": "At least one of the websites that is hosted on this IP address contains content of the aforementioned category.", 
+            "score": 1
+        }, 
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2017-05-02T21:09:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.4/32", 
+            "reason": "Security analyst review", 
+            "reasonDescription": "Based on the review of an X-Force security analyst.", 
+            "score": 1
+        }
+    ], 
+    "ip": "1.2.3.4", 
+    "subnets": [
+        {
+            "categoryDescriptions": {}, 
+            "cats": {}, 
+            "created": "2012-03-22T07:26:00.000Z", 
+            "geo": {
+                "country": "Australia", 
+                "countrycode": "AU"
+            }, 
+            "ip": "1.2.3.0/24", 
+            "reason": "Regional Internet Registry", 
+            "reasonDescription": "One of the five RIRs announced a (new) location mapping of the IP.", 
+            "score": 1
+        }
+    ]
+}{
+    "contact": [
+        {
+            "country": "Australia", 
+            "name": "APNIC Debogon Project", 
+            "organization": "Debogon-prefix", 
+            "type": "registrant"
+        }
+    ], 
+    "contactEmail": "research@apnic.net", 
+    "extended": {
+        "contact": [
+            {
+                "country": "Australia", 
+                "name": "APNIC Debogon Project", 
+                "organization": "Debogon-prefix", 
+                "type": "registrant"
+            }
+        ], 
+        "contactEmail": "research@apnic.net", 
+        "netRange": "1.2.3.0 - 1.2.3.255", 
+        "registrarName": "APNIC", 
+        "updatedDate": "2011-09-22T00:00:00.000Z"
+    }, 
+    "netRange": "1.2.3.0 - 1.2.3.255", 
+    "registrarName": "APNIC", 
+    "updatedDate": "2011-09-22T00:00:00.000Z"
+}
