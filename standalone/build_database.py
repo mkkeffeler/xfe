@@ -4,7 +4,7 @@ __author__='mkkeffeler'
 #Miclain Keffeler
 #6/6/2017
 #This file creates 2 tables within the SQL Database that is named "IP_Report.db". One table is used to hold current information while the other is used to hold historic information
-
+#Usage: python build_database.py 
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String
@@ -13,6 +13,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 
 Base = declarative_base()
+
 class IP_Current(Base):    #Table to hold most up to date score and Category on a given IP Address 
     __tablename__ = 'current'               
     IP = Column(String(250), primary_key=True)       #Here we define each column in the table, Notice that each column is also a normal Python instance attribute.

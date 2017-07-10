@@ -1,3 +1,6 @@
+#Will be used in the creation of a library that can be downloaded via Pip. 
+#NOT CURRENTLY WORKING FULLY
+
 from setuptools import setup
 
 setup(

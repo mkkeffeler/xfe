@@ -29,7 +29,7 @@ engine = create_engine('sqlite:///IP_Report.db')   #Setup the Database
 DBSession = sessionmaker(bind = engine)
 session = DBSession()   
 
-input_current = session.query(IP_History).filter(IP_Current.IP == "1.2.3.4").one()
+input_current = session.query(IP_History).filter(IP_Current.IP == str(sys.argv[1])).one()
 setattr(input_current,'Location','harrylair')         #Update current table with new information
 session.commit()
 
