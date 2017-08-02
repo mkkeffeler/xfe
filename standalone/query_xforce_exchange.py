@@ -35,10 +35,11 @@ key = config.get('DEFAULT', 'KEY')                          #Get API Key and Pas
 password = config.get('DEFAULT', 'PASSWORD')
 
 proxies = config.get('DEFAULT','proxies')
-authuser = str(raw_input('What is the username for Proxy Auth: '))
-authpassword = getpass.getpass('Password for Proxy:')
-auth = authuser + ":" + authpassword
-proxies = {"https": 'http://' + authuser + ':' + authpassword + '@' + proxies}
+if(proxies != ""):
+    authuser = str(raw_input('What is the username for Proxy Auth: '))
+    authpassword = getpass.getpass('Password for Proxy:')
+    auth = authuser + ":" + authpassword
+    proxies = {"https": 'http://' + authuser + ':' + authpassword + '@' + proxies}
 
 
 engine = create_engine('sqlite:///IP_Report.db')   #Setup the Database
@@ -50,7 +51,10 @@ output = open(sys.argv[2]+".json","w")    #Output all downloaded json to a file
 whois = ""
 def send_request(apiurl, scanurl, headers,output):   #This function makes a request to the X-Force Exchange API using a specific URL and headers. 
     fullurl = apiurl +  scanurl
-    response = requests.get(fullurl, params='',proxies=proxies,headers=headers, timeout=20)
+    if(proxies == ""):
+        response = requests.get(fullurl, params='',headers=headers, timeout=20)
+    else:
+        response = requests.get(fullurl, params='',proxies=proxies,headers=headers, timeout=20)
     all_json = response.json()
     output.write(json.dumps(all_json,indent=4,sort_keys=True))
     return all_json

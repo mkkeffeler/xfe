@@ -41,7 +41,6 @@ session = DBSession()
 os.chdir('xforce/')
 def send_request(apiurl, scanurl, headers,output):
     fullurl = str(apiurl) +  str(scanurl)
-    print fullurl
     response = requests.get(fullurl, params='', headers=headers, timeout=20)
     all_json = response.json()
     output = open(output+"-whois.json","w")   #Updates the JSON file associated with respective IPs
@@ -208,10 +207,9 @@ if( IP_Entry.Location !=IP_Location): #Checks the latest security check on this 
         event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
         update_both_tables(1,IP_Location,Update_IP)
 	session.commit()
-	syslog(event)
 	print  "Location EVENT IS:" + event
         IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
-
+        syslog(event)
 
 if( IP_Entry.Date != date_parse(str(get_current_info(1,review_count,Update_IP,all_json)))): #Checks the latest security check on this IP address to IP_Current Table information
         event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,"1",IP_Entry.Category,"APNIC","APNIC",IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),"7",get_current_info(0,review_count,Update_IP,all_json))
