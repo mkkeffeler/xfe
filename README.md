@@ -9,7 +9,7 @@ First install all requirements<br>
 <br>
 Now it becomes very easy to setup your database,<br>
 `python build_database.py`
-  
+
 This creates a database with 2 tables for Current IP Category and Score and Historic Data on the same IP addresses. The database is called "IP_Report.db".
 ### Config.ini Setings
 Within the config.ini file, both the KEY and PASWORD should be set to your provided X-Force API Key and Password. Instruction on obtaining a Key:Password Combo can be obtained here: [X-Force Authentication Instructions](https://api.xforce.ibmcloud.com/doc/#auth). The HOST and PORT settings are for running the Update_all_ip.py script which generates and sends CEF Formatted events to the provided hostname and port. More information on this script can be found below. 
@@ -59,4 +59,4 @@ To update your database and check against the newest information on X-Force, sim
 
 # More to Come
 
-More functionality being added to support URL queries and more. Working on setuping a pypi package that can be installed and contains the above functionality through methods
+More functionality being added to support URL queries and more. Working on setting up a pypi package that can be installed and contains the above functionality through methods
