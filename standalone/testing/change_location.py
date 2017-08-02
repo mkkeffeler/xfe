@@ -30,6 +30,7 @@ DBSession = sessionmaker(bind = engine)
 session = DBSession()   
 
 input_current = session.query(IP_History).filter(IP_Current.IP == sys.argv[1]).one()
+input_current = session.query(IP_History).filter(IP_Current.IP == str(sys.argv[1])).one()
 setattr(input_current,'Location','harrylair')         #Update current table with new information
 session.commit()
 

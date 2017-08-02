@@ -29,10 +29,22 @@ from configparser import ConfigParser
 import getpass
 
 
+parser = OptionParser()
+parser.add_option("-u", "--url", dest="s_url", default="none", 
+		  help="url to be checked by exchange ibm xforce", metavar="scanurl")                 #Use this option to check a url
+parser.add_option("-i", "--ip", dest="s_ip" , default="none",
+		  help="ip to be checked", metavar="ipaddress")                                           #Use this option to check an IP address
+(options, args) = parser.parse_args()
+
+
+if len(sys.argv[1:]) == 0:
+    parser.print_help()
+    exit()
+
 config = ConfigParser()
 config.read('config.ini')
-key = config.get('DEFAULT', 'KEY')                          #Get API Key and Password from Config.INI file
-password = config.get('DEFAULT', 'PASSWORD')
+key = str(config.get('DEFAULT', 'KEY'))                          #Get API Key and Password from Config.INI file
+password = str(config.get('DEFAULT', 'PASSWORD'))
 
 proxies = config.get('DEFAULT','proxies')
 authuser = str(raw_input('What is the username for Proxy Auth: '))
@@ -61,7 +73,7 @@ def get_md5(filename):     #This function returns the MD5 hash of a provided fil
         md5 = hashlib.md5((f).read()).hexdigest()
         return md5
     except e:
-        print str(e)
+        print (str(e))
 
 def check_ip_exist(Table,Provided_IP):           #This function confirms whether or not an entry already exists. If so, it returns the entry 
     while(1):
@@ -108,54 +120,18 @@ def get_current_info(column_number,review_count,Provided_IP,all_json):          
                 key_count += 1
         return current_info
 
-class Client(object,Provided_IP):
-    def __init__(self, key, password, url=DEFAULT_ROOT_URL, sub_user=None,language=None, tracking_id=None, **kwargs):
-        self.key = key
-        self.password = password
-        self.url = url
-        self.sub_user = sub_user
-        self.language = language
-        self.tracking_id = tracking_id
-        self.kwargs = kwargs
+if __name__ == "__main__":
     
+    Provided_IP = str(sys.argv[2])
 
     IP_exists = check_ip_exist(IP_Current,Provided_IP)              #Check if the IP provided exists in the table already. If so, they we don't need to create another entry
     IP_exists_history = check_ip_exist(IP_History,Provided_IP)
-
-    token = base64.b64encode(key + ":" + password)
-    print token
-    headers = {'Authorization': "Basic " + token, 'Accept': 'application/json'}
-    url = "https://api.xforce.ibmcloud.com:443"
-
-
-    parser = OptionParser()
-    parser.add_option("-u", "--url", dest="s_url", default="none", 
-                      help="url to be checked by exchange ibm xforce", metavar="scanurl")                 #Use this option to check a url
-    parser.add_option("-l", "--malwareurl", dest="m_url", default="none", 
-                      help="returns the malware associated with the entered url", metavar="scanurl")               #Use this option to get malware associated with a url
-    parser.add_option("-f", "--file", dest="malfile" , default="none",
-                      help="file (md5 hash) to be checked by exchange ibm xforce", metavar="filename")                 #Use this option to check a file's maliciousness
-    parser.add_option("-m", "--md5", dest="hash" , default="none",
-                      help="hash to be checked by exchange ibm xforce", metavar="hashvalue")                       #use this option to check a md5 hash
-    parser.add_option("-x", "--xfid", dest="s_xfid" , default="none",
-                      help="xfid to be used ", metavar="xfid")                                  #Use this option to specify an xfid
-    parser.add_option("-c", "--cve", dest="s_cve" , default="none",
-                      help="cve, bid, us-cert, uv#, rhsa id to be searched ", metavar="cve-xxx-xxx")
-    parser.add_option("-i", "--ip", dest="s_ip" , default="none",
-                      help="ip to be checked", metavar="ipaddress")                                           #Use this option to check an IP address
-(options, args) = parser.parse_args()
-
+    token = base64.b64encode((key + ":" + password).encode())
+    headers = {'Authorization': "Basic " + str(token), 'Accept': 'application/json'}
+    url = "https://api.xforce.ibmcloud.com"
 if ( options.s_url is not "none" ): #If the -u option was used, then take the value that was entered for that parameter and 
     apiurl = url + "/url/"
     scanurl = options.s_url
-    all_json = send_request(apiurl, scanurl, headers,output)
-elif ( options.m_url is not "none" ):
-    apiurl = url + "/url/malware/" 
-    scanurl = options.m_url
-    all_json=send_request(apiurl, scanurl, headers,output)
-elif ( options.s_cve is not "none" ):
-    apiurl = url + "/vulnerabilities/search/" 
-    scanurl = options.s_cve
     all_json = send_request(apiurl, scanurl, headers,output)
 elif (options.s_ip is not "none"):    #If the -i option was used
     scanurl = options.s_ip
@@ -167,16 +143,6 @@ elif (options.s_ip is not "none"):    #If the -i option was used
     send_request(apiurl, scanurl, headers,output)
     apiurl = url + "/whois/"
     whois = send_request(apiurl,scanurl,headers,output)
-elif (options.malfile is not "none" ):
-    md5 = get_md5(options.malfile)
-    if md5:
-        send_request(url+"/malware/", md5, headers,output)
-elif (options.s_xfid is not "none" ):
-    send_request(url+"/vulnerabilities/", options.s_xfid, headers,output)
-    
-elif (options.hash is not "none" ):
-    send_request(url+"/ipr/", options.hash, headers,output)
-    
 
 IP_Location = all_json["geo"]["country"]     #Used to hold categories of an IP or URL that have already been listed in the report.
 
