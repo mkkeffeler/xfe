@@ -23,28 +23,28 @@ columns = ["IP","Location","Date","Score","Category"]
 # Retrieve one Address whose person field is point to the person object
 # Return the first IP address from all the IP addresses in this table
 def print_registrar_name(string):
-    print "Registrar Name: " + string
+    print ("Registrar Name: " + string)
 
 def print_registrar_org(string):
-    print "Registrar Organization: " + string
+    print ("Registrar Organization: " + string)
 
 def print_ip(string):   #This function is used to print the IP address
-    print "IP: " + string
+    print ("IP: " + string)
 
 def print_location(string):  #This function is used to print the IP location
-    print "Location: " + string
+    print ("Location: " + string)
 
 def print_date(string):   #This function is used to print the date of review
-    print "Date of Review: " + str(string)
+    print ("Date of Review: " + str(string))
 
 def print_score(string):    #This function is used to print the current or historic score of an IP
-    print "Score: " + string
+    print ("Score: " + string)
 
 def print_category(string):   #This function is used to print the current categorizations of an IP
-    print "All Current Categorizations: " + string
+    print ("All Current Categorizations: " + string)
 
 def print_historic_category(string):  #This function is used to print the historic categorizations of an IP
-    print "All Historic Categorizations: " + str(string)
+    print ("All Historic Categorizations: " + str(string))
 
 if __name__ == "__main__":
     parser = OptionParser()
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 if options.all1 is not "None":
 
     person = session.query(IP_Current).filter(IP_Current.IP == options.all1).one()
-    print "Current Information"                      #Print all the information on this IP in the current data table
+    print ("Current Information")                 #Print all the information on this IP in the current data table
     print_ip(person.IP)
     print_location(person.Location)
     print_date( person.Date)
@@ -70,7 +70,7 @@ if options.all1 is not "None":
     print_registrar_name(person.registrar_name)
     print_registrar_org(person.registrar_organization)
     current = session.query(IP_History).filter(IP_History.IP == options.all1).one()
-    print "\nHistoric Information\n"                  #Print all the information in on this IP in the historic data table
+    print ("\nHistoric Information\n")                  #Print all the information in on this IP in the historic data table
     print_ip(current.IP)
     print_location(current.Location)
     print_date(current.Date)

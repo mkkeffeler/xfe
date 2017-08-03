@@ -33,7 +33,7 @@ def dynamic_priority(is_new_location,is_new_registrar,is_new_category,is_new_sco
         elif(6<= net_change <= 10):
             return 10
         else:
-            return 1
+            return 7
     elif(is_new_location == 1):
         return 2
     elif(is_new_registrar == 1):
@@ -48,7 +48,7 @@ def dynamic_priority(is_new_location,is_new_registrar,is_new_category,is_new_sco
         elif(6<= net_change <= 10):
             return 10
         else:
-            return 1
+            return 7
 
 def dynamic_event_names(Updated_IP,is_new_location,is_new_registrar,new_registrar_name,is_new_category,is_new_score,old_score,new_score,new_num_categories,old_num_categories,new_categories,new_location):
     global is_new_registrar_global 
@@ -83,7 +83,7 @@ def dynamic_event_names(Updated_IP,is_new_location,is_new_registrar,new_registra
 
 def did_change(old_string,new_string):
     if(str(old_string) != str(new_string)):
-        print str(old_string)
+        print (str(old_string))
         return 1
     else: 
         return 0
