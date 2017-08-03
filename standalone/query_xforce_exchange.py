@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/az/arcsight/counteract_scripts/env/bin/python
 __author__='mkkeffeler'
 
 #Miclain Keffeler
