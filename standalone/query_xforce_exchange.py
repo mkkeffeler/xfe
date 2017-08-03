@@ -131,7 +131,7 @@ if __name__ == "__main__":
     IP_exists = check_ip_exist(IP_Current,Provided_IP)              #Check if the IP provided exists in the table already. If so, they we don't need to create another entry
     IP_exists_history = check_ip_exist(IP_History,Provided_IP)
     token = base64.b64encode((key + ":" + password).encode())
-    headers = {'Authorization': "Basic " + str(token), 'Accept': 'application/json'}
+    headers = {'Authorization': "Basic " + token.decode('ascii'), 'Accept': 'application/json'}
     url = "https://api.xforce.ibmcloud.com"
 if ( options.s_url is not "none" ): #If the -u option was used, then take the value that was entered for that parameter and 
     apiurl = url + "/url/"
