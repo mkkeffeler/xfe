@@ -26,21 +26,22 @@ import os
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read('config.ini')
+config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
 HOST= config.get('DEFAULT', 'HOST')                          #Get Hostname and Port to send CEF event to from Config.INI file
 PORT= config.get('DEFAULT', 'PORT')
 key = config.get('DEFAULT', 'KEY')                          #Get API Key and Password from Config.INI file
 password = config.get('DEFAULT', 'PASSWORD')
 
-
-engine = create_engine('sqlite:///IP_Report.db')
+print (str(os.path.dirname(os.path.abspath(__file__))) )
+engine = create_engine('sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)),'IP_Report.db'))
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
 #Output all downloaded json to a file
-os.chdir('xforce/')
+os.chdir(os.path.join(os.path.dirname(__file__), 'xforce/'))
 def send_request(apiurl, scanurl, headers,output):
+    proxies = {"https": 'http://proxy.autozone.com:8080'}
     fullurl = str(apiurl) +  str(scanurl)
-    response = requests.get(fullurl, params='', headers=headers, timeout=20)
+    response = requests.get(fullurl, params='',proxies=proxies, headers=headers, timeout=20)
     all_json = response.json()
     output = open(output+"-whois.json","w")   #Updates the JSON file associated with respective IPs
     output.write(json.dumps(all_json,indent=4,sort_keys=True))
@@ -182,58 +183,58 @@ for IP_Entry in session.query(IP_History).all():      #For every IP address in t
                 already_categorized.append(entry)   #Add the category to the list of already printed categories so we don't repeat
 
   
-if(str(IP_Entry.Score) != str(get_current_info(2,review_count,Update_IP,all_json))):                      #Adds the latest score that was reported on this IP address to IP_Current Table
-        event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-        session.commit()
-        syslog(event)
-        print  ("Score EVENT IS:" + event)
-        update_both_tables(3,get_current_info(2,review_count,Update_IP,all_json),Update_IP) 
-        IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
- 
-if(str(IP_Entry.Category) != get_current_info(0,review_count,Update_IP,all_json)):   #Adds the latest categorization for this IP address to IP_Current Table
-	event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-	update_both_tables(4,all_categories,Update_IP)
-	session.commit()
-	syslog(event)
-	print  ("Category EVENT IS:" + event)
-	IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+    if(str(IP_Entry.Score) != str(get_current_info(2,review_count,Update_IP,all_json))):                      #Adds the latest score that was reported on this IP address to IP_Current Table
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+	    session.commit()
+	    syslog(event)
+	    print  ("Score EVENT IS:" + event)
+	    update_both_tables(3,get_current_info(2,review_count,Update_IP,all_json),Update_IP) 
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+     
+    if(str(IP_Entry.Category) != get_current_info(0,review_count,Update_IP,all_json)):   #Adds the latest categorization for this IP address to IP_Current Table
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+	    update_both_tables(4,all_categories,Update_IP)
+	    session.commit()
+	    syslog(event)
+	    print  ("Category EVENT IS:" + event)
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
 
 
-if( IP_Entry.Location !=IP_Location): #Checks the latest security check on this IP address to IP_Current Table information
-	event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-	update_both_tables(1,IP_Location,Update_IP)
-	session.commit()
-	print  ("Location EVENT IS:" + event)
-	IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
-	syslog(event)
+    if( IP_Entry.Location !=IP_Location): #Checks the latest security check on this IP address to IP_Current Table information
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+	    update_both_tables(1,IP_Location,Update_IP)
+	    session.commit()
+	    print  ("Location EVENT IS:" + event)
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+	    syslog(event)
 
-if( IP_Entry.Date != date_parse(str(get_current_info(1,review_count,Update_IP,all_json)))): #Checks the latest security check on this IP address to IP_Current Table information
-	event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,"1",IP_Entry.Category,"APNIC","APNIC",IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),"7",get_current_info(0,review_count,Update_IP,all_json))
-	update_both_tables(2,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),Update_IP)
-	session.commit()
-	syslog(event)
-	print  ("EVENT IS:" + event)
-	IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+    if( IP_Entry.Date != date_parse(str(get_current_info(1,review_count,Update_IP,all_json)))): #Checks the latest security check on this IP address to IP_Current Table information
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,"1",IP_Entry.Category,"APNIC","APNIC",IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),"7",get_current_info(0,review_count,Update_IP,all_json))
+	    update_both_tables(2,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),Update_IP)
+	    session.commit()
+	    syslog(event)
+	    print  ("EVENT IS:" + event)
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
 
-if(str(IP_Entry.registrar_organization) != str(registrar_organization)):   #Adds the latest categorization for this IP address to IP_Current Table
-	print (IP_Entry.registrar_organization)
-	print (registrar_organization)
-	event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-	update_both_tables(6,all_categories,Update_IP)
-	print (event)
-	session.commit()
-	syslog(event)
-	print  ("EVENT IS:" + event)
-	IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+    if(str(IP_Entry.registrar_organization) != str(registrar_organization)):   #Adds the latest categorization for this IP address to IP_Current Table
+	    print (IP_Entry.registrar_organization)
+	    print (registrar_organization)
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+	    update_both_tables(6,all_categories,Update_IP)
+	    print (event)
+	    session.commit()
+	    syslog(event)
+	    print  ("EVENT IS:" + event)
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
 
-    
-if(str(IP_Entry.registrar_name) != registrar_name):   #Adds the latest categorization for this IP address to IP_Current Table
-	event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
-	update_both_tables(5,all_categories,Update_IP)
-	print (event)
-	session.commit()
-	syslog(event)
-	print  ("EVENT IS:" + event)
-	IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
+	
+    if(str(IP_Entry.registrar_name) != registrar_name):   #Adds the latest categorization for this IP address to IP_Current Table
+	    event = generate_cef_event(Update_IP,IP_Entry.registrar_name,IP_Entry.registrar_organization,IP_Entry.Location,IP_Entry.Date,IP_Entry.Score,IP_Entry.Category,registrar_name,registrar_organization,IP_Location,date_parse(str(get_current_info(1,review_count,Update_IP,all_json))),get_current_info(2,review_count,Update_IP,all_json),get_current_info(0,review_count,Update_IP,all_json))
+	    update_both_tables(5,all_categories,Update_IP)
+	    print (event)
+	    session.commit()
+	    syslog(event)
+	    print  ("EVENT IS:" + event)
+	    IP_Entry = session.query(IP_History).filter(Update_IP == IP_History.IP).one()
 
 print ("Updates were Successful")
