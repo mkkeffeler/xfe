@@ -43,8 +43,8 @@ def send_request(apiurl, scanurl, headers,output):
     fullurl = str(apiurl) +  str(scanurl)
     response = requests.get(fullurl, params='',proxies=proxies, headers=headers, timeout=20)
     all_json = response.json()
-    output = open(output+"-whois.json","w")   #Updates the JSON file associated with respective IPs
-    output.write(json.dumps(all_json,indent=4,sort_keys=True))
+ #   output = open(output+"-whois.json","w")   #Updates the JSON file associated with respective IPs
+  #  output.write(json.dumps(all_json,indent=4,sort_keys=True))
     return all_json
 
 def get_md5(filename):
